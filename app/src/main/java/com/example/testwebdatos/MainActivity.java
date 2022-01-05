@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         queue = Volley.newRequestQueue(this);
-        url = "http://servidordeltapy.dyndns.org/expresoparaguay/wsdelta.asmx/Removido_ObtenerDatosIniciales2?Agencia=W99&Usuario=CrEa20X&Password=uDc9FoS";
+        url = "http://servidordeltapy.dyndns.org/transboliparWS/WSDelta.asmx/Activadores_Inicializar?Agencia=W99&Usuario=CrEa20X&Password=uDc9FoS";
 
 
 
@@ -104,8 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //queue.add(stringRequest);
-        //requestQueue.add(stringRequest);
+
+
+    }
+    //queue.add(stringRequest);
+    //requestQueue.add(stringRequest);
 //        InputStream Respuesta;
 //        traductor(Respuesta);
 
@@ -133,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("ENTRO", "AL CATCH :(" );
 //
 //        }
-
-    }
-
 //    private InputStream descargarContenido(String urlString) throws IOException {
 //        Log.d("ENTRO", "AL DESCARGAR CONTENIDO" );
 //        URL url = new URL(urlString);                   //CREA EL URL
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             tag = parser.getName();
             switch (event){
                 case XmlPullParser.START_TAG:           //SI ESTA EN EL PRINCIPIO DE UN TAG
-                    if(tag.equals( "Removido_Inicializar2" )) {
+                    if(tag.equals( "Activadores_Inicializar" )) {
                         nroTabla = 1;
                         Salida = Salida + "\n \t Tabla Nro1:";
                     }
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                         nroTabla = 2;
                         Salida = Salida + "\n \t Tabla Nro2:";
                     }
-                    if(tag.equals( "Removido_Inicializar22" )) {
+                    if(tag.equals( "Activadores_Inicializar1" )) {
                         nroTabla = 3;
                         Salida = Salida + "\n \t Tabla Nro3:";
                     }
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                                 Salida = Salida + ("\n HoraPasada:" + dato);
                                 break;
 
-                            case "Removido_Inicializar2":
+                            case "Activadores_Inicializar":
                                 nroTabla=0;
                                 break;
                         }
@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
                             case "CalidadA":
                                 Salida = Salida + ("\n CalidadA:" + dato);
                                 break;
-                            case "Removido_Inicializar22":
+                            case "Activadores_Inicializar1":
                                 nroTabla=0;
                                 break;
                         }
@@ -290,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
         }
         textView = (TextView) findViewById(R.id.tvPrueba);
         textView.setMovementMethod(new ScrollingMovementMethod());
+
 
         textView.setText( Salida );
 
